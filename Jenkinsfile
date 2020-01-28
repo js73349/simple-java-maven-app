@@ -1,8 +1,8 @@
 node {
-  state('Checkout code') {
+  stage('Checkout code') {
     git 'https://github.com/js73349/simple-java-maven-app'
   }
-  state('Compile code') {
+  stage('Compile code') {
     sh 'mvn clean install'
   }
 }

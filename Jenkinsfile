@@ -3,6 +3,8 @@ node {
     git 'https://github.com/js73349/simple-java-maven-app'
   }
   stage('Compile code') {
-    sh 'mvn clean install'
+    def mvnHome = tool name: 'maven-3.6.3', type: 'maven'
+    sh "${mvnHome}/bin/mvn clean install"
+    //sh 'mvn clean install'
   }
 }

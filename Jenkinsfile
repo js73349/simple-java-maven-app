@@ -9,8 +9,8 @@ node {
   }
   stage('Deploy') {
     sshagent(['tomcat-dit']) {
-      sh 'scp -o StrictHostKeyChecking=no -l target/*.war jeffsmith@desktop-r08eqpu.usla.ibm.com:"/C/Program Files/Apache Software Foundation/Tomcat 7.0/webapps/"'
-      //sh 'scp -o StrictHostKeyChecking=no -l target/*.war jeffsmith@9.70.98.139:"/C/Program Files/Apache Software Foundation/Tomcat 7.0/webapps/"'
+      sh 'scp -o StrictHostKeyChecking=no -l target/*.war jeffsmith@desktop-r08eqpu.usla.ibm.com:"/c/Program Files/Apache Software Foundation/Tomcat 7.0/webapps/"'
+      //sh 'scp -o StrictHostKeyChecking=no -l target/*.war jeffsmith@9.70.98.139:"/c/Program Files/Apache Software Foundation/Tomcat 7.0/webapps/"'
     }
   }
 }

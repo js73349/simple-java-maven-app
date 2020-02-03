@@ -9,8 +9,9 @@ node {
   }
   stage('Deploy') {
     sshagent(['tomcat-dit']) {
-      sh 'scp -o StrictHostKeyChecking=no -l target/*.war jeffsmith@desktop-r08eqpu.usla.ibm.com:"/c/Program Files/Apache Software Foundation/Tomcat 7.0/webapps/"'
+      //sh 'scp -o StrictHostKeyChecking=no -l target/*.war jeffsmith@desktop-r08eqpu.usla.ibm.com:"/c/Program Files/Apache Software Foundation/Tomcat 7.0/webapps/"'
       //sh 'scp -o StrictHostKeyChecking=no -l target/*.war jeffsmith@9.70.98.139:"/c/Program Files/Apache Software Foundation/Tomcat 7.0/webapps/"'
+      deploy adapters: [tomcat7(credentialsId: 'tomcat7-war-deployer', path: '', url: 'http://desktop-r08eqpu.usla.ibm.com:8080')], contextPath: 'simple-java-maven-app', war: '**/*.war'
     }
   }
 }
